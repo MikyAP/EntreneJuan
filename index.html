@@ -49,7 +49,9 @@ h2{font-size:17px;margin:18px 0 8px}
 
 /* Inicio */
 .hero{display:flex;gap:14px;align-items:center}
-.big-letter{width:64px;height:64px;border-radius:18px;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font-size:34px;font-weight:800;flex:none}
+.big-letter{width:64px;height:64px;border-radius:18px;background:var(--acc);display:grid;place-items:center;font-size:32px;flex:none}
+.big-letter.A{background:#E4572E}.big-letter.B{background:#2F7FD8}.big-letter.C{background:#8A5AD0}.big-letter.D{background:#2F9E5F}
+.chip.sc{font-size:13px;padding:0 12px}
 .hero h3{margin:0;font-size:18px}
 .plan-list{margin:12px 0 4px;padding:0;list-style:none}
 .plan-list li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line);font-size:14px}
@@ -120,6 +122,8 @@ body.timing{padding-bottom:calc(140px + env(safe-area-inset-bottom))}
 .hist .h{display:flex;justify-content:space-between;gap:8px;align-items:center}
 .badge{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--acc);color:var(--acc-ink);font-weight:800;margin-right:8px;flex:none}
 .badge.cl{background:var(--card2);color:var(--ink)}
+.badge.A,.badge.B,.badge.C,.badge.D{width:38px;font-size:11px;letter-spacing:.02em;color:#fff}
+.badge.A{background:#E4572E}.badge.B{background:#2F7FD8}.badge.C{background:#8A5AD0}.badge.D{background:#2F9E5F}
 .badge.cd{background:#0E9AA7;color:#fff;font-size:16px}
 .hist ul{margin:8px 0 0;padding:0;list-style:none;font-size:13px}
 .hist li{padding:4px 0;border-top:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
@@ -159,7 +163,7 @@ body.timing{padding-bottom:calc(140px + env(safe-area-inset-bottom))}
 .cal-cell.today{border-color:var(--muted)}
 .cal-cell.sel{border-color:var(--acc);background:var(--acc-soft)}
 .cal-dots{display:flex;gap:2px;flex-wrap:wrap;justify-content:center;padding:0 2px}
-.sd{font-style:normal;display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 3px;border-radius:5px;font-size:10.5px;font-weight:800;color:#fff;line-height:1}
+.sd{font-style:normal;letter-spacing:.02em;display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 3px;border-radius:5px;font-size:10.5px;font-weight:800;color:#fff;line-height:1}
 .sd.K{background:#0E9AA7}.sd.A{background:#E4572E}.sd.B{background:#2F7FD8}.sd.C{background:#8A5AD0}.sd.D{background:#2F9E5F}.sd.cl{background:#7A808A}
 .cal-leg{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;font-size:11px;color:var(--muted);margin-top:10px}
 .cal-leg span{display:inline-flex;align-items:center;gap:4px}
@@ -263,7 +267,7 @@ footer.attr a{color:inherit}
 <body>
 <header class="top"><div class="wrap">
   <div class="brand">Entre<span>no</span></div>
-  <div class="pill" id="nextPill">Toca <b>A</b></div>
+  <div class="pill" id="nextPill">Toca: <b>Pecho 1</b></div>
 </div></header>
 
 <main class="wrap">
@@ -425,15 +429,19 @@ const FAM=[{n:'Pecho',g:['pecho']},{n:'Hombro',g:['hombro','hombro_post']},{n:'T
 const LBL={chest:'Pecho',delts:'Hombro',reardelts:'Hombro post.',triceps:'Tríceps',biceps:'Bíceps',forearms:'Antebrazo',lats:'Dorsal',upperback:'Espalda alta',lowerback:'Lumbar',traps:'Trapecio',abs:'Abdomen',obliques:'Oblicuos',glutes:'Glúteos',quads:'Cuádriceps',hamstrings:'Isquios',calves:'Gemelos',adductors:'Aductores'};
 
 const ROUT={
-  A:{t:'Pecho/Hombro/Tríceps 1',it:[{e:'bench',s:4,r:'6-10'},{e:'incdb',s:3,r:'8-12'},{e:'cablefly',s:3,r:'12-15'},{e:'military',s:3,r:'8-12'},{e:'cablelat',s:3,r:'12-15'},{e:'pushdown',s:3,r:'10-15'}]},
-  B:{t:'Espalda/Bíceps/Abdomen',it:[{e:'latpull',s:4,r:'8-12'},{e:'row',s:3,r:'8-12'},{e:'pulldownm',s:3,r:'10-15'},{e:'facepull',s:3,r:'12-20'},{e:'curl',s:3,r:'8-12'},{e:'hammer',s:3,r:'10-15'},{e:'machcurl',s:2,r:'10-15'},{act:'abs'}]},
-  C:{t:'Pecho/Hombro/Tríceps 2',it:[{e:'chestpress',s:4,r:'8-12'},{e:'pecpolea',s:3,r:'12-15'},{e:'shoulderm',s:3,r:'8-12'},{e:'disco',s:3,r:'12-15'},{e:'trimach',s:3,r:'10-15'},{e:'overhead',s:3,r:'10-15'},{e:'preacher',s:3,r:'10-12'}]},
-  D:{t:'Espalda/Pierna',it:[{e:'legpress',s:4,r:'10-12'},{alt:['rdl','hipthrust'],s:3,r:'8-12'},{e:'legext',s:3,r:'10-15'},{e:'legcurl',s:3,r:'10-15'},{e:'machrow',s:3,r:'8-12'},{e:'abd',s:2,r:'12-15'},{e:'add',s:2,r:'12-15'},{e:'calf',s:3,r:'12-20'},{e:'lumbar',s:2,r:'12-15'},{alt:['cablecrunch','plank'],s:3,r:{cablecrunch:'10-15',plank:'30-60 s'}}]}
+  A:{t:'Pecho, hombro y tríceps',it:[{e:'bench',s:4,r:'6-10'},{e:'incdb',s:3,r:'8-12'},{e:'cablefly',s:3,r:'12-15'},{e:'military',s:3,r:'8-12'},{e:'cablelat',s:3,r:'12-15'},{e:'pushdown',s:3,r:'10-15'}]},
+  B:{t:'Espalda, bíceps y abdomen',it:[{e:'latpull',s:4,r:'8-12'},{e:'row',s:3,r:'8-12'},{e:'pulldownm',s:3,r:'10-15'},{e:'facepull',s:3,r:'12-20'},{e:'curl',s:3,r:'8-12'},{e:'hammer',s:3,r:'10-15'},{e:'machcurl',s:2,r:'10-15'},{act:'abs'}]},
+  C:{t:'Pecho, hombro y tríceps',it:[{e:'chestpress',s:4,r:'8-12'},{e:'pecpolea',s:3,r:'12-15'},{e:'shoulderm',s:3,r:'8-12'},{e:'disco',s:3,r:'12-15'},{e:'trimach',s:3,r:'10-15'},{e:'overhead',s:3,r:'10-15'},{e:'preacher',s:3,r:'10-12'}]},
+  D:{t:'Pierna y espalda',it:[{e:'legpress',s:4,r:'10-12'},{alt:['rdl','hipthrust'],s:3,r:'8-12'},{e:'legext',s:3,r:'10-15'},{e:'legcurl',s:3,r:'10-15'},{e:'machrow',s:3,r:'8-12'},{e:'abd',s:2,r:'12-15'},{e:'add',s:2,r:'12-15'},{e:'calf',s:3,r:'12-20'},{e:'lumbar',s:2,r:'12-15'},{alt:['cablecrunch','plank'],s:3,r:{cablecrunch:'10-15',plank:'30-60 s'}}]}
 };
 const ORDER=['A','B','C','D'];
 ROUT.K={t:'Cardio',it:[]};
-const sidLabel=sid=>sid==='K'?'Cardio':'Sesión '+sid;
-const sidBadge=sid=>sid==='K'?'🚴':sid;
+/* Nombre que se ve de cada sesión (por dentro siguen siendo A, B, C, D) */
+const SN={A:{n:'Pecho 1',ab:'PE1',ic:'🏋️'},B:{n:'Espalda',ab:'ESP',ic:'🚣'},C:{n:'Pecho 2',ab:'PE2',ic:'🏋️'},D:{n:'Pierna',ab:'PIE',ic:'🦵'},K:{n:'Cardio',ab:'🚴',ic:'🚴'}};
+const sidLabel=sid=>SN[sid]?SN[sid].n:sid;
+const sidBadge=sid=>SN[sid]?SN[sid].ab:sid;
+const ORDER_TXT=()=>ORDER.map(sidLabel).join(' → ');
+const nextPill=()=>{$('#nextPill').innerHTML='Toca: <b>'+sidLabel(S.next)+'</b>';};
 
 /* ============ Estado ============ */
 const KEY='entreno_v1';
@@ -576,8 +584,8 @@ function cardSVG(L){const st=statsOf([L]);const R=ROUT[L.sid]||{t:'Sesión'};
   let v=`<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E222B"/><stop offset="1" stop-color="#14161B"/></linearGradient></defs>`;
   v+=`<rect width="1080" height="__H__" fill="url(#cg)"/><rect x="0" y="0" width="1080" height="10" fill="#FF4D5E"/>`;
   v+=`<text x="64" y="92" fill="#98A1AE" font-size="28" font-weight="700" letter-spacing="3">ENTRENO${L.sid==='K'?' · CARDIO':n?` · SESIÓN ${n}`:''}</text>`;
-  v+=`<text x="64" y="160" fill="#EEF1F4" font-size="58" font-weight="800">${esc(R.t)}</text>`;
-  v+=`<text x="64" y="208" fill="#98A1AE" font-size="32">${esc(sidLabel(L.sid))} · ${esc(dFull(L.date))}</text>`;
+  v+=`<text x="64" y="160" fill="#EEF1F4" font-size="58" font-weight="800">${esc(sidLabel(L.sid))}</text>`;
+  v+=`<text x="64" y="208" fill="#98A1AE" font-size="32">${L.sid==='K'?'':esc(R.t)+' · '}${esc(dFull(L.date))}</text>`;
   const bh=600,by=240;v+=bodySVG('F',st.mus,190,by,bh);v+=bodySVG('B',st.mus,570,by,bh);
   v+=`<text x="350" y="${by+bh+34}" fill="#98A1AE" font-size="24" text-anchor="middle">Delante</text><text x="730" y="${by+bh+34}" fill="#98A1AE" font-size="24" text-anchor="middle">Detrás</text>`;
   const lx=920;v+=`<text x="${lx+40}" y="300" fill="#98A1AE" font-size="20" text-anchor="middle">más</text>`;
@@ -594,7 +602,7 @@ function cardSVG(L){const st=statsOf([L]);const R=ROUT[L.sid]||{t:'Sesión'};
   if(L.act)extra.push(`Abdomen: ${L.act.kind}${L.act.min?' '+L.act.min+' min':''}`);
   if(st.sets&&st.cmin)(L.ex||[]).filter(x=>isCardio(x.e)).forEach(x=>extra.push(`Cardio: ${exName(x.e)} ${setsLine(x.e,x.sets)}`));
   const pd=L.sid==='K'?null:prevSame(L);if(pd){const ps=statsOf([pd]);if(ps.kg&&st.kg){const d=st.kg-ps.kg;const pc=Math.round(d/ps.kg*100);
-    extra.push(`${d>=0?'+':'−'}${fmtInt(Math.abs(d))} kg (${d>=0?'+':'−'}${Math.abs(pc)} %) vs la última ${L.sid} (${dShort(pd.date)})`);}}
+    extra.push(`${d>=0?'+':'−'}${fmtInt(Math.abs(d))} kg (${d>=0?'+':'−'}${Math.abs(pc)} %) vs el último ${sidLabel(L.sid)} (${dShort(pd.date)})`);}}
   extra.forEach(t=>{v+=`<text x="540" y="${ly}" fill="#98A1AE" font-size="26" text-anchor="middle">${esc(t)}</text>`;ly+=44;});
   if(extra.length)ly+=8;
   const rec=recordsOf(L);
@@ -623,11 +631,11 @@ function bindDetail(root,L){root.querySelectorAll('[data-card]').forEach(b=>b.on
 /* ============ Vista: Entrenar ============ */
 function renderTrain(){
   const v=$('#v-train');
-  $('#nextPill').innerHTML='Toca <b>'+S.next+'</b>';
+  nextPill();
   if(S.draft){v.innerHTML=sessionHTML();bindSession();return;}
   const done=S.justDone&&S.log.find(l=>l.id===S.justDone);
   if(done){
-    v.innerHTML=`<h2>¡Sesión terminada! 💪</h2><div class="muted small" style="margin:-4px 0 10px">La próxima es la <b>${S.next}</b>.</div>
+    v.innerHTML=`<h2>¡Sesión terminada! 💪</h2><div class="muted small" style="margin:-4px 0 10px">La próxima: <b>${sidLabel(S.next)}</b>.</div>
       ${sessionDetailHTML(done)}
       <div class="row"><button class="btn grow" id="editDone">✏️ Editar sesión</button><button class="btn pri grow" id="okDone">Hecho</button></div>
       <footer class="attr">Mapa muscular: react-body-highlighter (MIT)</footer>`;
@@ -640,16 +648,16 @@ function renderTrain(){
   const last=[...S.log].reverse().find(l=>l.type==='sesion');
   v.innerHTML=`
   <div class="card" style="margin-top:14px">
-    <div class="hero"><div class="big-letter">${pick}</div>
-      <div><div class="muted small">${pick===S.next?'Te toca hoy':'Sesión elegida a mano'}</div><h3>${R.t}</h3>
-      <div class="muted small">${last?'Última: '+(last.sid==='K'?'cardio':last.sid)+' · '+dLong(last.date):'Primera sesión. ¡A por ello!'}</div></div></div>
+    <div class="hero"><div class="big-letter ${pick}">${SN[pick].ic}</div>
+      <div><div class="muted small">${pick===S.next?'Te toca hoy':'Elegida a mano'}</div><h3>${sidLabel(pick)}</h3><div class="small">${R.t}</div>
+      <div class="muted small">${last?'Última: '+sidLabel(last.sid)+' · '+dLong(last.date):'Primera sesión. ¡A por ello!'}</div></div></div>
     <ul class="plan-list">${R.it.map((it,i)=>{if(it.act)return `<li><span>Abdomen</span><span class="sr">clase o 15 min</span></li>`;
       const k=pick+i,sw=S.swap[k]&&EX[S.swap[k]];
       const name=sw?`${exName(S.swap[k])} <span class="sw">⇄ cambiado</span>`:it.alt?it.alt.map(exName).join(' o '):exName(it.e);
       return `<li><span>${name}</span><span class="sr">${it.s} × ${sw?repsFor(it,S.swap[k]):typeof it.r==='object'?Object.values(it.r).join(' / '):it.r}</span></li>`;}).join('')}</ul>
-    <button class="btn pri block" id="startBtn">Empezar sesión ${pick}</button>
-    <div class="row wrapr" style="margin-top:12px"><span class="muted small">¿Hoy otra?</span>
-      <div class="chips">${ORDER.map(k=>`<button class="chip ${k===pick?'on':''}" data-pick="${k}">${k}</button>`).join('')}</div></div>
+    <button class="btn pri block" id="startBtn">Empezar ${sidLabel(pick)}</button>
+    <div style="margin-top:12px"><div class="muted small" style="margin-bottom:6px">¿Hoy prefieres otra?</div>
+      <div class="chips">${ORDER.map(k=>`<button class="chip sc ${k===pick?'on':''}" data-pick="${k}">${sidLabel(k)}</button>`).join('')}</div></div>
   </div>
   <div class="row"><button class="btn ghost grow" id="cardioBtn">🚴 Sesión de cardio</button><button class="btn ghost grow" id="claseBtn">＋ Clase o actividad</button></div>
   <div class="muted small" style="margin-top:6px;text-align:center">El cardio suelto no cambia la sesión que te toca.</div>
@@ -682,7 +690,7 @@ function slotIt(sl){return sl.i!=null?ROUT[S.draft.sid].it[sl.i]:{s:3,r:'8-12'};
 function sessionHTML(){
   const d=S.draft,R=ROUT[d.sid];
   return `
-  <div class="sess-head"><div><div class="muted small">${sidLabel(d.sid)} · <span id="elapsed"></span></div><h3>${R.t}</h3></div>
+  <div class="sess-head"><div><div class="muted small">${d.sid==='K'?'':R.t+' · '}<span id="elapsed"></span></div><h3>${sidLabel(d.sid)}</h3></div>
     <button class="btn ghost" id="discardBtn" style="min-height:38px;font-size:13px">Descartar</button></div>
   ${d.sid==='K'?`<div class="note">🚴 <b>Sesión de cardio:</b> añade bici, elíptica, cinta… Apunta los minutos; los km y las kcal si la máquina los da.${d.slots.length?'':'<br>Pulsa «＋ Añadir ejercicio» para empezar.'}</div>`:`<div class="note">🔥 <b>Calentamiento:</b> 1-2 series ligeras en el primer ejercicio. No se apuntan.<br>⇄ <b>¿Máquina ocupada?</b> Pulsa «Cambiar» en el ejercicio y elige otro parecido.</div>`}
   ${d.slots.map((sl,idx)=>sl.act?actHTML():`<div class="card ex" data-slot="${idx}">${cardHTML(idx)}</div>`).join('')}
@@ -848,7 +856,7 @@ function openEdit(id){const L=S.log.find(l=>l.id===id);if(!L)return;
   renderEdit();$('#sheet').scrollTop=0;}
 function renderEdit(){
   const sc=$('#modal').classList.contains('show')?$('#sheet').scrollTop:0;
-  openModal(`<h3>Editar ${ED.sid==='K'?'cardio':'sesión '+esc(ED.sid)}</h3>
+  openModal(`<h3>Editar ${esc(sidLabel(ED.sid))}</h3>
     <div class="row"><div class="grow"><label>Fecha</label><input type="date" id="eDate" value="${esc(ED.date)}"></div>
     <div style="width:110px"><label>Minutos</label><input id="eDur" inputmode="numeric" value="${esc(ED.dur||'')}"></div></div>
     ${ED.ex.map((x,i)=>{const tm=isTime(x.e),cd=isCardio(x.e);return `<div class="ed-ex">
@@ -969,7 +977,7 @@ function calHTML(){
   return `<div class="card" id="calCard">
     <div class="cal-head"><button data-cm="-1" ${calM<=firstLog?'disabled':''} aria-label="Mes anterior">‹</button><b>${MESL[m-1]} ${y}</b><button data-cm="1" ${calM>=t.slice(0,7)?'disabled':''} aria-label="Mes siguiente">›</button></div>
     <div class="cal-grid">${g}</div>
-    <div class="cal-leg">${ORDER.map(k=>`<span><i class="sd ${k}">${k}</i>${{A:'Pecho 1',B:'Espalda/Bíceps',C:'Pecho 2',D:'Pierna'}[k]}</span>`).join('')}<span><i class="sd K">🚴</i>Cardio</span><span><i class="sd cl">🧘</i>Clase</span></div>
+    <div class="cal-leg">${ORDER.map(k=>`<span><i class="sd ${k}">${sidBadge(k)}</i>${sidLabel(k)}</span>`).join('')}<span><i class="sd K">🚴</i>Cardio</span><span><i class="sd cl">🧘</i>Clase</span></div>
     <div id="dayPanel"></div></div>`;
 }
 function dayPanelHTML(){
@@ -981,7 +989,7 @@ function dayPanelHTML(){
     <div class="mid"><b>${esc(dFull(iso).replace(/^./,c=>c.toUpperCase()))}${iso===todayISO()?' · hoy':''}</b><small>${esc(sub)}</small></div>
     <button data-dstep="${next||''}" ${next?'':'disabled'} aria-label="Día siguiente con entreno">›</button></div><div class="day-body">`;
   if(!es.length)h+=`<div class="empty" style="padding:18px 6px 6px">Este día no hay nada apuntado.</div>`;
-  ses.forEach(L=>{h+=`<div data-dses="${L.id}">${sessionDetailHTML(L)}<button class="btn block" data-dedit="${L.id}">✏️ Editar ${L.sid==='K'?'cardio':'sesión '+L.sid}</button></div>`;});
+  ses.forEach(L=>{h+=`<div data-dses="${L.id}">${sessionDetailHTML(L)}<button class="btn block" data-dedit="${L.id}">✏️ Editar ${sidLabel(L.sid)}</button></div>`;});
   es.filter(l=>l.type==='clase').forEach(l=>{h+=`<div class="cl-line"><span>🧘 <b>${esc(l.kind)}</b> · ${l.min} min${l.note?`<br><small class="muted">${esc(l.note)}</small>`:''}</span><button class="btn sm" data-dcl="${l.id}">✏️ Editar</button></div>`;});
   h+=`<button class="btn ghost block" style="margin-top:10px" data-daddcl>＋ Apuntar clase este día</button>`;
   h+=`<div class="muted small" style="text-align:center;margin-top:8px">Toca un día del calendario o usa ‹ › para ir al anterior o siguiente con entreno.</div></div>`;
@@ -1045,7 +1053,7 @@ function renderHist(){
   ${L.map(l=>l.type==='clase'?`
     <div class="card hist" data-cl="${l.id}"><div class="h"><div class="row"><span class="badge cl">🧘</span><div><b>${esc(l.kind)}</b><div class="muted small">${dLong(l.date)} · ${l.min} min</div></div></div><span class="go">›</span></div>
       ${l.note?`<div class="small" style="margin-top:6px">${esc(l.note)}</div>`:''}</div>`:`
-    <div class="card hist" data-ses="${l.id}"><div class="h"><div class="row"><span class="badge${l.sid==='K'?' cd':''}">${sidBadge(l.sid)}</span><div><b>${ROUT[l.sid]?ROUT[l.sid].t:'Sesión'}</b><div class="muted small">${dLong(l.date)}${l.dur?' · '+l.dur+' min':''}</div></div></div><span class="go">›</span></div>
+    <div class="card hist" data-ses="${l.id}"><div class="h"><div class="row"><span class="badge ${l.sid}${l.sid==='K'?' cd':''}">${sidBadge(l.sid)}</span><div><b>${sidLabel(l.sid)}</b><div class="muted small">${dLong(l.date)}${l.dur?' · '+l.dur+' min':''}</div></div></div><span class="go">›</span></div>
       <ul>${l.ex.map(x=>`<li><span>${esc(exName(x.e))}</span><span>${setsLine(x.e,x.sets)}</span></li>`).join('')}
       ${l.act?`<li><span>Abdomen</span><span>${esc(l.act.kind)} · ${l.act.min} min</span></li>`:''}</ul></div>`).join('')}
   <footer class="attr">Mapa muscular: react-body-highlighter (MIT)</footer>`;
@@ -1095,7 +1103,7 @@ function renderChart(){
     <table class="data"><thead><tr><th>Fecha</th><th>Series</th><th class="r">${cd?(chartMetric==='max'?'Min':'Km'):chartMetric==='max'?(tm?'Mejor':'Máx'):(tm?'Total':'Vol.')}</th></tr></thead>
     <tbody>${[...data].reverse().map(d=>`<tr><td>${dShort(d.date)}</td><td>${setsLine(chartSel,d.sets)}</td><td class="r">${fmt(d[chartMetric])}</td></tr>`).join('')}</tbody></table></div>`;}
   v.innerHTML=`<h2>Gráficas</h2>
-  <div class="chips">${[...ORDER,'K'].map(k=>`<button class="chip ${k===chartGroup?'on':''}" data-grp="${k}">${k==='K'?'🚴 Cardio':k}</button>`).join('')}</div>
+  <div class="chips">${[...ORDER,'K'].map(k=>`<button class="chip ${k===chartGroup?'on':''}" data-grp="${k}">${k==='K'?'🚴 Cardio':sidLabel(k)}</button>`).join('')}</div>
   <div class="strip" id="strip">${es.map(e=>`<button class="tile ${e===chartSel?'on':''} ${seriesFor(e).length?'':'nodata'}" data-ex="${e}"><div class="ph ${EX[e].img?'':'none'}">${phTag(e)}</div><span>${EX[e].n}</span></button>`).join('')}</div>
   ${body}`;
   v.querySelectorAll('[data-grp]').forEach(b=>b.onclick=()=>{chartGroup=b.dataset.grp;const g=groupEx(chartGroup);chartSel=g.find(e=>seriesFor(e).length)||g[0];renderChart();});
@@ -1144,10 +1152,10 @@ function renderSet(){
   const v=$('#v-set');
   const sw=Object.entries(S.swap).filter(([k,e])=>EX[e]&&ROUT[k[0]]&&ROUT[k[0]].it[+k.slice(1)]);
   v.innerHTML=`<h2>Ajustes</h2>
-  <div class="card"><b>Siguiente sesión</b><div class="muted small" style="margin:2px 0 10px">Las sesiones van en orden A → B → C → D. Si te saltas un día, sigues por donde lo dejaste. Cámbiala aquí solo si se ha descolocado.</div>
-    <div class="chips">${ORDER.map(k=>`<button class="chip ${k===S.next?'on':''}" data-nx="${k}">${k}</button>`).join('')}</div></div>
+  <div class="card"><b>Siguiente sesión</b><div class="muted small" style="margin:2px 0 10px">Las sesiones van en orden ${ORDER_TXT()} y vuelta a empezar. Si te saltas un día, sigues por donde lo dejaste. Cámbiala aquí solo si se ha descolocado.</div>
+    <div class="chips">${ORDER.map(k=>`<button class="chip ${k===S.next?'on':''}" data-nx="${k}">${sidLabel(k)}</button>`).join('')}</div></div>
   <div class="card"><b>Ejercicios cambiados para siempre</b>
-    ${sw.length?`<ul class="exlist">${sw.map(([k,e])=>`<li><span>Sesión ${k[0]}: <b>${esc(exName(e))}</b><br><small class="muted">en lugar de ${esc(exName(slotDefault(k[0],+k.slice(1))))}</small></span><button class="btn sm" data-unsw="${k}">↺ Volver</button></li>`).join('')}</ul>`
+    ${sw.length?`<ul class="exlist">${sw.map(([k,e])=>`<li><span>${sidLabel(k[0])}: <b>${esc(exName(e))}</b><br><small class="muted">en lugar de ${esc(exName(slotDefault(k[0],+k.slice(1))))}</small></span><button class="btn sm" data-unsw="${k}">↺ Volver</button></li>`).join('')}</ul>`
       :'<div class="muted small" style="margin-top:4px">Ninguno. Durante la sesión, «⇄ Cambiar» → «Siempre en esta sesión».</div>'}</div>
   <div class="card"><b>Copia de seguridad</b><div class="muted small" style="margin:2px 0 10px">Tus datos se guardan solo en este móvil. Si borras los datos del navegador o cambias de teléfono, se pierden. Exporta una copia de vez en cuando (por ejemplo, cada semana) y guárdala en Drive o envíatela.</div>
     <div class="muted small" style="margin-bottom:10px">${S.log.length} registros guardados${S.lastExport?' · Última copia: '+dLong(S.lastExport):' · Aún no has hecho ninguna copia'}</div>
@@ -1155,7 +1163,7 @@ function renderSet(){
   <div class="card"><b>Borrar todo</b><div class="muted small" style="margin:2px 0 10px">Elimina todas las sesiones de este móvil. Haz antes una copia.</div>
     <button class="btn ghost danger block" id="wipeBtn">Borrar todos los datos</button></div>
   <footer class="attr">Imágenes de ejercicios: Exercise data by <a href="https://repdb.co" target="_blank" rel="noopener">RepDB (repdb.co)</a><br>Mapa muscular: react-body-highlighter (MIT)<br>Los vídeos abren una búsqueda en YouTube del ejercicio.</footer>`;
-  v.querySelectorAll('[data-nx]').forEach(b=>b.onclick=()=>{S.next=b.dataset.nx;S._pick=null;save();renderSet();$('#nextPill').innerHTML='Toca <b>'+S.next+'</b>';toast('Siguiente sesión: '+S.next);});
+  v.querySelectorAll('[data-nx]').forEach(b=>b.onclick=()=>{S.next=b.dataset.nx;S._pick=null;save();renderSet();nextPill();toast('Siguiente: '+sidLabel(S.next));});
   v.querySelectorAll('[data-unsw]').forEach(b=>b.onclick=()=>{delete S.swap[b.dataset.unsw];save();renderSet();toast('Vuelve el ejercicio original');});
   $('#expBtn').onclick=()=>{
     const data=JSON.stringify({app:'entreno',v:1,exported:new Date().toISOString(),log:S.log,next:S.next,alt:S.alt,swap:S.swap},null,1);
@@ -1177,7 +1185,7 @@ let view='train';
 function render(){
   ['train','hist','chart','set'].forEach(k=>$('#v-'+k).classList.toggle('hide',k!==view));
   document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===view));
-  $('#nextPill').innerHTML='Toca <b>'+S.next+'</b>';
+  nextPill();
   ({train:renderTrain,hist:renderHist,chart:renderChart,set:renderSet})[view]();
 }
 document.querySelectorAll('nav.tabs button').forEach(b=>b.onclick=()=>{view=b.dataset.v;render();window.scrollTo(0,0);});
